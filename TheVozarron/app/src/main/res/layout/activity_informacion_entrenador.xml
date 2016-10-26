@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.uniquindio.android.electiva.thevozarron.activities.InformacionEntrenadorActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_entrenador"
+        android:layout_width="match_parent"
+        android:elevation="4dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nombre"
+        android:id="@+id/textNombreL"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/foto_participante"
+        android:layout_toStartOf="@+id/foto_participante"
+        android:layout_marginRight="35dp"
+        android:layout_marginEnd="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textNombreC"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textEstadoC"
+        android:layout_alignStart="@+id/textEstadoC" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/genero"
+        android:id="@+id/textEstadoL"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/textNombreL"
+        android:layout_alignLeft="@+id/textNombreL"
+        android:layout_alignStart="@+id/textNombreL" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textEstadoC"
+        android:layout_marginRight="110dp"
+        android:layout_marginEnd="110dp"
+        android:layout_above="@+id/textEdadL"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/discipulos"
+        android:id="@+id/button"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/textEdadC"
+        android:layout_alignRight="@+id/textEdadC"
+        android:layout_alignEnd="@+id/textEdadC" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/historial"
+        android:id="@+id/textEdadL"
+        android:layout_marginTop="52dp"
+        android:layout_below="@+id/textEstadoL"
+        android:layout_alignLeft="@+id/textEstadoL"
+        android:layout_alignStart="@+id/textEstadoL" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textEdadC"
+        android:layout_alignTop="@+id/textEdadL"
+        android:layout_alignLeft="@+id/textEdadL"
+        android:layout_alignStart="@+id/textEstadoC" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/foto_participante"
+        android:src="@drawable/ic_home_black_24dp"
+        android:layout_below="@+id/toolbar_entrenador"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp" />
+</RelativeLayout>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.uniquindio.android.electiva.thevozarron.activities.InformacionEntrenadorActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_participante"
+        android:layout_width="match_parent"
+        android:elevation="4dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:paddingBottom="30dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nombre"
+        android:id="@+id/textNombreL"
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_alignTop="@+id/textNombreC"
+        android:layout_toLeftOf="@+id/foto_participante"
+        android:layout_toStartOf="@+id/foto_participante" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textNombreC"
+        android:layout_below="@+id/foto_participante"
+        android:layout_toRightOf="@+id/foto_participante"
+        android:layout_toEndOf="@+id/foto_participante"
+        android:layout_marginTop="42dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/estado"
+        android:id="@+id/textEstadoL"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/textNombreL"
+        android:layout_alignLeft="@+id/textNombreL"
+        android:layout_alignStart="@+id/textNombreL" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textEstadoC"
+        android:layout_alignTop="@+id/textEstadoL"
+        android:layout_alignLeft="@+id/textNombreC"
+        android:layout_alignStart="@+id/textNombreC" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edad"
+        android:id="@+id/textEdadL"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/textEstadoL"
+        android:layout_alignLeft="@+id/textEstadoL"
+        android:layout_alignStart="@+id/textEstadoL" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textEdadC"
+        android:layout_alignTop="@+id/textEdadL"
+        android:layout_alignLeft="@+id/textEstadoC"
+        android:layout_alignStart="@+id/textEstadoC" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/foto_participante"
+        android:src="@drawable/don"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/entrenador"
+        android:id="@+id/textEntrenadorL"
+        android:layout_below="@+id/textEdadL"
+        android:layout_alignLeft="@+id/textEdadL"
+        android:layout_alignStart="@+id/textEdadL"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textEntrenadorC"
+        android:layout_alignTop="@+id/textEntrenadorL"
+        android:layout_alignLeft="@+id/textEdadC"
+        android:layout_alignStart="@+id/textEdadC" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rol"
+        android:id="@+id/textRolL"
+        android:layout_below="@+id/textEntrenadorL"
+        android:layout_alignLeft="@+id/textEntrenadorL"
+        android:layout_alignStart="@+id/textEntrenadorL"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textRolC"
+        android:layout_alignTop="@+id/textRolL"
+        android:layout_toRightOf="@+id/foto_participante"
+        android:layout_toEndOf="@+id/foto_participante" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/video"
+        android:id="@+id/textVideoL"
+        android:layout_below="@+id/textRolL"
+        android:layout_alignLeft="@+id/textRolL"
+        android:layout_alignStart="@+id/textRolL"
+        android:layout_marginTop="36dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="www.youtube.com"
+        android:id="@+id/textVideoC"
+        android:layout_alignTop="@+id/textVideoL"
+        android:layout_toRightOf="@+id/foto_participante"
+        android:layout_toEndOf="@+id/foto_participante" />
+
+</RelativeLayout>
+
