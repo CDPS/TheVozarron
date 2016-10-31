@@ -8,14 +8,36 @@ import android.os.Parcelable;
  */
 public class Participantes implements Parcelable {
 
+
+    //------------------------------------------------------------------------------
+    //Atributos
+    //------------------------------------------------------------------------------
+
+    //Describe el nombre del participante
     String nombre;
+
+    //Descirbe la continuidad del participante en el reality
     String estado;
+
+    //Describe la edad del participante
     int edad;
+
+    //Describe el nombre del entenador el cual lo entrena
     String entrenador;
+
+    //Describe el rol que tiene el participante en la universidad
     String rol;
+
+    //Link al video que tiene como referencia
     String video;
+
+    //Referencia a la foto del participante
     int imagen;
 
+
+    //------------------------------------------------------------------------------
+    //Constructor
+    //------------------------------------------------------------------------------
 
     public Participantes(String nombre, String estado,int edad,String entrenador,String rol,
                          String video,int imagen){
@@ -28,6 +50,11 @@ public class Participantes implements Parcelable {
         this.imagen = imagen;
     }
 
+   /*
+    * Constructor que permite crear un participante traves
+    * de parce lable
+    * @param in
+    */
     protected Participantes(Parcel in) {
         nombre = in.readString();
         estado = in.readString();
@@ -60,6 +87,11 @@ public class Participantes implements Parcelable {
         parcel.writeString(video);
         parcel.writeInt(imagen);
     }
+
+
+    //------------------------------------------------------------------------------
+    //Metodos Getters and Setters
+    //------------------------------------------------------------------------------
 
     @Override
     public int describeContents() {

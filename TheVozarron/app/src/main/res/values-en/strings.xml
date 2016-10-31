@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TheVozarron</string>
+    <string name="nombre">Name</string>
+    <string name="estado">State</string>
+    <string name="edad">Age</string>
+    <string name="entrenador">Trainer</string>
+    <string name="rol">Rol</string>
+    <string name="video">Video</string>
+    <string name="genero">Gender</string>
+    <string name="historial">Record</string>
+    <string name="discipulos">Disciples</string>
+    <string name="ingles">English</string>
+    <string name="español">Spanish</string>
+    <string name="cambiarIdioma">Change languagge</string>
+    <string name="version">Version</string>
+    <string name="entrenadores">Trainers</string>
+    <string name="participantes">Participants</string>
+    <string name="votar">Vote</string>
+    <string name="url">www.youtube.com</string>
+</resources>

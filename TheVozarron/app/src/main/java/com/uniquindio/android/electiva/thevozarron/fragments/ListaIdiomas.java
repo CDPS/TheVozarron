@@ -23,15 +23,33 @@ import java.util.ArrayList;
  */
 public class ListaIdiomas extends Fragment implements  IdiomasAdapter.OnClickAdaptadorIdiomas{
 
+    //------------------------------------------------------------------------------
+    //Atributos
+    //------------------------------------------------------------------------------
 
+    //Lista de opciones a mostrar en este fragmento
     private ArrayList<Opciones> opciones;
+
+    //Adaptador para la lista de opciones
     private IdiomasAdapter adapter;
+
+    //Instancia de RecyclerView utilizado en el fragmento
     private RecyclerView listadoOpciones;
+
+    //Listener de las opciones desplegadas en el fragmento
     private OnIdiomaSeleccionado listener;
+
+    //------------------------------------------------------------------------------
+    //Constructor
+    //------------------------------------------------------------------------------
 
     public ListaIdiomas() {
         // Required empty public constructor
     }
+
+    //------------------------------------------------------------------------------
+    //Metodos
+    //------------------------------------------------------------------------------
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,8 +61,13 @@ public class ListaIdiomas extends Fragment implements  IdiomasAdapter.OnClickAda
     }
 
     @Override
-    public void onClickPosition(int pos) {listener.OnIdiomaSeleccionado(pos); }
+    public void onClickPosition(int pos) {
+        listener.OnIdiomaSeleccionado(pos);
+    }
 
+    /**
+     * Interfaz para el listener del fragmento
+     */
     public interface OnIdiomaSeleccionado {
         void  OnIdiomaSeleccionado(int position);
     }

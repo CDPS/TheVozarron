@@ -23,27 +23,51 @@ import java.util.ArrayList;
  */
 public class MenuOpciones extends Fragment implements OpcionesAdapter.OnClickAdaptadorOPciones {
 
+    //------------------------------------------------------------------------------
+    //Atributos
+    //------------------------------------------------------------------------------
+
+    //Lista de opciones a mostrar en este fragmento
     private ArrayList<Opciones> opciones;
+
+    //Adaptador para la lista de opciones
     private OpcionesAdapter adapter;
+
+    //Instancia de RecyclerView utilizado en el fragmento
     private RecyclerView listadoOpciones;
+
+    //Listener de las opciones desplegadas en el fragmento
     private OnOPcionSeleccionada listener;
 
+    //atributo que indica que es una seccion de un tabViewer
     private static final String ARG_SECTION_NUMBER = "section_number";
+
+
+    //------------------------------------------------------------------------------
+    //Constructor
+    //------------------------------------------------------------------------------
+
     public MenuOpciones() {
         // Required empty public constructor
     }
 
+
+    //------------------------------------------------------------------------------
+    //Metodos
+    //------------------------------------------------------------------------------
+
     @Override
     public void onClickPosition(int pos) {listener. OnOPcionSeleccionada(pos); }
 
+    /**
+     * Interfaz para el listener del fragmento
+     */
     public interface OnOPcionSeleccionada {
         void OnOPcionSeleccionada(int position);
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         opciones = new ArrayList<>();
         opciones.add(new Opciones(getString(R.string.cambiarIdioma) ));
@@ -75,6 +99,12 @@ public class MenuOpciones extends Fragment implements OpcionesAdapter.OnClickAda
         }
     }
 
+    /**
+     * Crea una instancia del fragmento para ponerlo en una seccion del
+     * Tabviewer de la actividad principal
+     * @param sectionNumber es el numero donde queremos que este ubicado el fragmento
+     * @return una instancia del fragmento Inicion
+     */
     public static MenuOpciones newInstance(int sectionNumber) {
         MenuOpciones fragment = new MenuOpciones();
         Bundle args = new Bundle();

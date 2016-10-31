@@ -12,11 +12,29 @@ import java.util.Date;
  */
 public class Entrenador implements Parcelable {
 
+
+    //------------------------------------------------------------------------------
+    //Atributos
+    //------------------------------------------------------------------------------
+
+    //Describe el nombre del entrenador
     String nombre;
+
+    //Describe el genero que canta el entrenador
     String genero;
+
+    //Describe una historia completa de lo que ha hecho el entrenador en su carrera
     String historial;
+
+    //Identificador de la foto del entrenador
     int image;
+
+    //Lista de participantes que este entrena
     ArrayList<Participantes> listaParticipantes;
+
+    //------------------------------------------------------------------------------
+    //Constructores
+    //------------------------------------------------------------------------------
 
     public Entrenador(String nombre, String genero, String historial, int image){
         this.nombre = nombre;
@@ -26,12 +44,22 @@ public class Entrenador implements Parcelable {
         listaParticipantes = new ArrayList<>();
     }
 
+    /**
+     * Constructor que permite crear un entrenador a traves
+     * de parce lable
+     * @param in
+     */
     protected Entrenador(Parcel in) {
         nombre = in.readString();
         genero = in.readString();
         historial = in.readString();
         image = in.readInt();
     }
+
+
+    //------------------------------------------------------------------------------
+    //Metodos Getters and Setters
+    //------------------------------------------------------------------------------
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -64,6 +92,10 @@ public class Entrenador implements Parcelable {
     public ArrayList<Participantes> getListaParticipantes() {
         return listaParticipantes;
     }
+
+    //------------------------------------------------------------------------------
+    //Metodos
+    //------------------------------------------------------------------------------
 
     public static final Parcelable.Creator<Entrenador> CREATOR = new Parcelable.Creator<Entrenador>() {
         @Override

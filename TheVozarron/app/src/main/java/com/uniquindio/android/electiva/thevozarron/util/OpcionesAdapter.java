@@ -17,12 +17,26 @@ import java.util.ArrayList;
  */
 public class OpcionesAdapter extends RecyclerView.Adapter<OpcionesAdapter.OpcionViewHolder> {
 
+    //------------------------------------------------------------------------------
+    //Atributos
+    //------------------------------------------------------------------------------
+
+    //listener para cada una de las opciones
     private static OnClickAdaptadorOPciones listener;
+
+    //lista de opciones a adaptar
     private ArrayList<Opciones> opciones;
 
+    /**
+     * Interfaz para el listener del fragmento
+     */
     public interface OnClickAdaptadorOPciones{
         public void onClickPosition(int pos);
     }
+
+    //------------------------------------------------------------------------------
+    //Constructor
+    //------------------------------------------------------------------------------
 
     public OpcionesAdapter(ArrayList<Opciones> opciones, MenuOpciones op){
         this.opciones = opciones;
@@ -31,14 +45,26 @@ public class OpcionesAdapter extends RecyclerView.Adapter<OpcionesAdapter.Opcion
 
     public static class OpcionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
+        //------------------------------------------------------------------------------
+        //Atributos
+        //------------------------------------------------------------------------------
+
+        //TexVIew que muestra la opcion a  seleccionar
         private TextView txtOpcion;
 
+        /*Metodo que srive para incializar
+         *Los componentes de esta interfaz
+         */
         public OpcionViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             txtOpcion = (TextView) itemView.findViewById(R.id.opcion);
         }
 
+        /* Metodo que sirve para hacer binding entre las opciones
+         * y los componetes de la interfaz
+         * @param o objeto del cual se extrae la informacion para realizar el binding
+         */
         public void binOpcion(Opciones o) {
             txtOpcion.setText(o.getOpcion());
         }
@@ -48,6 +74,11 @@ public class OpcionesAdapter extends RecyclerView.Adapter<OpcionesAdapter.Opcion
             listener.onClickPosition(getAdapterPosition());
         }
     }
+
+
+    //------------------------------------------------------------------------------
+    //Metodos
+    //------------------------------------------------------------------------------
 
     @Override
     public OpcionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

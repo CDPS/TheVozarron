@@ -7,8 +7,7 @@
     android:padding="8dp"
     android:layout_margin="6dp"
     card_view:cardBackgroundColor="@color/blanco"
-    android:id="@+id/opciones_participante">
-
+    android:id="@+id/opciones_entrenador">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,25 +15,26 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/participante_imagen"
+            android:id="@+id/participantev_imagen"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/don" />
 
         <TextView
-            android:id="@+id/participante"
+            android:id="@+id/participantev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="50dp"
             android:textSize="9pt" />
 
         <TextView
-            android:id="@+id/descripcion_participante"
+            android:id="@+id/votos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:textSize="9pt"/>
+
 
     </LinearLayout>
 </android.support.v7.widget.CardView>

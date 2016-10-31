@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.uniquindio.android.electiva.thevozarron.R;
-import com.uniquindio.android.electiva.thevozarron.util.EntrenadoresAdapter;
 import com.uniquindio.android.electiva.thevozarron.util.ParticipantesAdapter;
+import com.uniquindio.android.electiva.thevozarron.util.VotosAdapter;
 import com.uniquindio.android.electiva.thevozarron.vo.Opciones;
 import com.uniquindio.android.electiva.thevozarron.vo.Participantes;
 
@@ -22,7 +22,8 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListaParticipantes extends Fragment implements ParticipantesAdapter.OnClickAdaptadorParticipantes{
+public class VotarParticipantes extends Fragment implements VotosAdapter.OnClickAdaptadorVotos {
+
 
     //------------------------------------------------------------------------------
     //Atributos
@@ -32,19 +33,16 @@ public class ListaParticipantes extends Fragment implements ParticipantesAdapter
     private ArrayList<Opciones> opciones;
 
     //Adaptador para la lista de opciones
-    private ParticipantesAdapter adapter;
+    private VotosAdapter adapter;
 
     //Instancia de RecyclerView utilizado en el fragmento
     private RecyclerView listadoParticipantes;
 
     //Listener de las opciones desplegadas en el fragmento
-    private OnEntrenadorSeleccionado listener;
+    private OnParticpanteSeleccionado listener;
 
 
-    //------------------------------------------------------------------------------
-    //Constructor
-    //------------------------------------------------------------------------------
-    public ListaParticipantes() {
+    public VotarParticipantes() {
         // Required empty public constructor
     }
 
@@ -52,28 +50,39 @@ public class ListaParticipantes extends Fragment implements ParticipantesAdapter
     //------------------------------------------------------------------------------
     //Metodos
     //------------------------------------------------------------------------------
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         opciones = new ArrayList<>();
-        return inflater.inflate(R.layout.fragment_lista_participantes, container, false);
+        opciones.add(new Opciones("Mario","0",R.drawable.mario));
+        opciones.add(new Opciones("Luigui","0",R.drawable.luigi));
+        opciones.add(new Opciones("Peach","0",R.drawable.peach));
+        opciones.add(new Opciones("Bowser","0",R.drawable.bowser));
+        opciones.add(new Opciones("Don King kong","0",R.drawable.don));
+        opciones.add(new Opciones("Toad","0",R.drawable.toad));
+        opciones.add(new Opciones("Waluigui","0",R.drawable.waligui));
+        opciones.add(new Opciones("Warior","0",R.drawable.warior));
+        opciones.add(new Opciones("Yoshi","0",R.drawable.yoshi));
+        return inflater.inflate(R.layout.fragment_votar_lista_participantes, container, false);
     }
 
 
     @Override
-    public void onClickPosition(int pos) {listener.OnEntrenadorSeleccionado(pos); }
+    public void onClickPosition(int pos) {listener.OnParticpanteSeleccionado(pos); }
 
     /**
      * Interfaz para el listener del fragmento
      */
-    public interface OnEntrenadorSeleccionado {
-        void OnEntrenadorSeleccionado(int position);
+    public interface OnParticpanteSeleccionado {
+        void OnParticpanteSeleccionado(int position);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listadoParticipantes = (RecyclerView) getView().findViewById(R.id.listaParticipantes);
-        adapter = new ParticipantesAdapter(this.opciones,this);
+        listadoParticipantes = (RecyclerView) getView().findViewById(R.id.listaVotos);
+        adapter = new VotosAdapter(this.opciones,this);
         listadoParticipantes.setAdapter(adapter);
         listadoParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
     }
@@ -85,20 +94,28 @@ public class ListaParticipantes extends Fragment implements ParticipantesAdapter
         if (context instanceof Activity){
             activity = (Activity) context;
             try {
-                listener = (OnEntrenadorSeleccionado) activity;
+                listener = (OnParticpanteSeleccionado) activity;
             } catch (ClassCastException e) {
                 throw new ClassCastException(activity.toString() + " debe implementar la interfaz OnOpcionSeleccionada");
             }
         }
     }
     /**
-      * Metodo que permite configurar la lista de
-      * opciones a mostrar segun la lista de participantes ingresados
-      * @param p lista de participantes a mostrar en las opciones de esta interfaz
-      */
+     * Metodo que permite configurar la lista de
+     * opciones a mostrar segun la lista de participantes ingresados
+     * @param p lista de participantes a mostrar en las opciones de esta interfaz
+     */
     public void setOpciones(ArrayList<Participantes> p){
         for(int i=0;i<p.size();i++){
             opciones.add(new Opciones(p.get(i).getNombre(),p.get(i).getEstado(),p.get(i).getImagen()));
         }
     }
+
+    public  void setOpciones2(ArrayList<Opciones> p){
+        this.opciones=p;
+    }
+    public  ArrayList<Opciones> getOpciones(){
+        return opciones;
+    }
+
 }

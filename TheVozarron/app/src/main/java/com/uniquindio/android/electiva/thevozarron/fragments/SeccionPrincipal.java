@@ -23,23 +23,45 @@ import java.util.ArrayList;
  */
 public class SeccionPrincipal extends Fragment implements SeccionPrincipalAdapter.OnClickAdaptadorSeccionPrincipal {
 
+    //------------------------------------------------------------------------------
+    //Atributos
+    //------------------------------------------------------------------------------
+
+    //Lista de opciones a mostrar en este fragmento
     private ArrayList<Opciones> opciones;
+
+    //Adaptador para la lista de opciones
     private SeccionPrincipalAdapter adapter;
+
+    //Instancia de RecyclerView utilizado en el fragmento
     private RecyclerView listadoOpciones;
+
+    //Listener de las opciones desplegadas en el fragmento
     private OnSeccionSeleccionada listener;
     /**
      * Argumento que representa el número sección al que pertenece
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
 
+    //------------------------------------------------------------------------------
+    //Constructor
+    //------------------------------------------------------------------------------
 
     public SeccionPrincipal() {
         // Required empty public constructor
     }
 
+
+    //------------------------------------------------------------------------------
+    //Metodos
+    //------------------------------------------------------------------------------
+
     @Override
     public void onClickPosition(int pos) {listener. OnSeccionSeleccionada(pos); }
 
+    /**
+     * Interfaz para el listener del fragmento
+     */
     public interface OnSeccionSeleccionada {
         void OnSeccionSeleccionada(int position);
 
@@ -78,6 +100,12 @@ public class SeccionPrincipal extends Fragment implements SeccionPrincipalAdapte
         }
     }
 
+    /**
+     * Crea una instancia del fragmento para ponerlo en una seccion del
+     * Tabviewer de la actividad principal
+     * @param sectionNumber es el numero donde queremos que este ubicado el fragmento
+     * @return una instancia del fragmento Inicion
+     */
     public static SeccionPrincipal newInstance(int sectionNumber) {
         SeccionPrincipal fragment = new SeccionPrincipal();
         Bundle args = new Bundle();

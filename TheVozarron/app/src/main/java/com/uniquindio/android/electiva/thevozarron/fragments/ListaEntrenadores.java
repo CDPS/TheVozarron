@@ -26,15 +26,33 @@ import java.util.ArrayList;
 public class ListaEntrenadores extends Fragment  implements EntrenadoresAdapter.OnClickAdaptadorEntrenadores{
 
 
+    //------------------------------------------------------------------------------
+    //Atributos
+    //------------------------------------------------------------------------------
+
+    //Lista de opciones a mostrar en este fragmento
     private ArrayList<Opciones> opciones;
+
+    //Adaptador para la lista de opciones
     private EntrenadoresAdapter adapter;
+
+    //Instancia de RecyclerView utilizado en el fragmento
     private RecyclerView listadoOpciones;
+
+    //Listener de las opciones desplegadas en el fragmento
     private OnEntrenadorSeleccionado listener;
+
+    //------------------------------------------------------------------------------
+    //Constructor
+    //------------------------------------------------------------------------------
 
     public ListaEntrenadores() {
         // Required empty public constructor
     }
 
+    //------------------------------------------------------------------------------
+    //Metodos
+    //------------------------------------------------------------------------------
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,6 +63,9 @@ public class ListaEntrenadores extends Fragment  implements EntrenadoresAdapter.
     @Override
     public void onClickPosition(int pos) {listener.OnEntrenadorSeleccionado(pos); }
 
+    /**
+     * Interfaz para el listener del fragmento
+     */
     public interface OnEntrenadorSeleccionado {
         void OnEntrenadorSeleccionado(int position);
     }
@@ -72,10 +93,15 @@ public class ListaEntrenadores extends Fragment  implements EntrenadoresAdapter.
         }
     }
 
+    /**
+     * Metodo que permite configurar la lista de
+     * opciones a mostrar segun la lista de entrenadores ingresadas
+     * @param e lista de entrenadores a mostrar en las opciones de esta interfaz
+     */
     public void setOpciones (ArrayList<Entrenador> e){
         opciones = new ArrayList<>();
         for(int i=0;i<e.size();i++){
-            opciones.add(new Opciones(e.get(i).getNombre()));
+            opciones.add(new Opciones(e.get(i).getNombre(),e.get(i).getImage()));
         }
     }
 }

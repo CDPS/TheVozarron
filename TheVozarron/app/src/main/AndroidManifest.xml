@@ -19,7 +19,8 @@
         <activity android:name=".activities.CambiarIdiomaActivity" />
         <activity android:name=".activities.InformacionEntrenadorActivity" />
         <activity android:name=".activities.InformacionParticipanteActivity" />
-        <activity android:name=".activities.ListaParticipantesActivity"></activity>
+        <activity android:name=".activities.ListaParticipantesActivity" />
+        <activity android:name=".activities.VotarActivity"></activity>
     </application>
 
 </manifest>

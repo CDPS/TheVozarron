@@ -13,14 +13,28 @@ import java.util.ArrayList;
 
 public class ListaParticipantesActivity extends AppCompatActivity implements ListaParticipantes.OnEntrenadorSeleccionado {
 
+
+    //------------------------------------------------------------------------------
+    //Atributos
+    //------------------------------------------------------------------------------
+
+    //Lista de participantes a mostrar en la actividad
     private  ArrayList<Participantes> participantes;
 
+    //------------------------------------------------------------------------------
+    //Metodos
+    //------------------------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_participantes);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar_lista_participante) );
+
+        //Se captura una lista de participantes que puede ser transferidad de otras
+        //actividades
         participantes = getIntent().getParcelableArrayListExtra("list");
+
+        //Si la lista esta vacia esto indica que se deben mostrar todos los entrenadores
         if(participantes.size()==0){
             participantes.add(new Participantes("Mario","En competencia",20,"Riahana","Estudiante","www.youtube.com",R.drawable.mario));
             participantes.add(new Participantes("Luigui","En competencia",22,"Riahana","Admin","www.youtube.com",R.drawable.luigi));
@@ -32,13 +46,16 @@ public class ListaParticipantesActivity extends AppCompatActivity implements Lis
             participantes.add(new Participantes("Warior","En competencia",21,"Johnny Rivera","Estudiante","www.youtube.com",R.drawable.warior));
             participantes.add(new Participantes("Yoshi","En competencia",20,"Riahana","Estudiante","www.youtube.com",R.drawable.yoshi));
         }
-
+        //Se carga el fragmento donde se deben mostrar los participantes
+        //y se setea la lista de participantes en ese fragmentos
         ListaParticipantes  listaParticipantesFragment =(ListaParticipantes) getSupportFragmentManager().findFragmentById(R.id.fragmento_lista_participantes);
         listaParticipantesFragment.setOpciones(participantes);
     }
 
     @Override
     public void OnEntrenadorSeleccionado(int position) {
+        //si se da click en un participante, se debe mostrar la informacion del
+        //participante seleccionado
         Intent intent = new Intent(this,InformacionParticipanteActivity.class);
         intent.putExtra("part",participantes.get(position));
         startActivity(intent);
